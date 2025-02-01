@@ -6,7 +6,6 @@ import Dashboard from "./Components/Dashboard";
 import SignIn from "./pages/SignIn";
 import Error from "./pages/Error";
 import { createBrowserRouter, Outlet } from "react-router-dom";
-import { Link } from "react-router-dom";
 import SignUp from "./pages/SignUp";
 import Profile from "./pages/ProfilePage";
 import MyMatches from "./pages/MyMatches";

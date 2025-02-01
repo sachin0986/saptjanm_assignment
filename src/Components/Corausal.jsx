@@ -1,17 +1,44 @@
 import React, { useState, useEffect } from "react";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { carouselData } from "../Utils/DummyData";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { carouselData } from "../Utils/DummyData"
+
+
+const corausalStyle = {
+  corausalDiv: `relative w-full bg-gradient-to-b from-red-300 to-white py-8 md:py-12`,
+  mainContainer: `relative overflow-hidden rounded-xl shadow-lg`,
+  slides: `flex transition-transform duration-500 ease-out`,
+  prevSlide: `absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 p-2 rounded-full shadow-lg hover:bg-white transition-colors duration-200"`,
+  nextSlide: `absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 p-2 rounded-full shadow-lg hover:bg-white transition-colors duration-200`,
+  arrowIcon: `w-6 h-6 text-gray-800`,
+  corausalMap: `w-full flex-none flex flex-col md:flex-row items-center bg-white`,
+  imageDiv: `w-full md:w-1/2 h-48 sm:h-64 md:h-96 relative`,
+  imageData: `w-full h-full object-cover`,
+  contentSection: `w-full md:w-1/2 p-6 md:p-12`,
+  contentHeading: `text-2xl md:text-4xl font-bold text-gray-900 mb-4`,
+  contentText: `text-base md:text-lg text-gray-600`,
+  AutoplayToggle: `absolute top-4 right-4 bg-white/90 px-3 py-1 rounded-full text-sm font-medium text-gray-800 hover:bg-white transition-colors duration-200`,
+  Dot: `absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2`,
+}
+
 
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
 
-  // Auto-scroll functionality
+  // Sample carousel data - replace with your actual data
+  
+
   useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 4000);
+    let interval;
+    if (isAutoPlaying) {
+      interval = setInterval(() => {
+        nextSlide();
+      }, 4000);
+    }
     return () => clearInterval(interval);
-  }, [currentIndex]);
+  }, [currentIndex, isAutoPlaying]);
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) =>
@@ -25,59 +52,106 @@ const Carousel = () => {
     );
   };
 
+  const handleTouchStart = (e) => {
+    setTouchStart(e.touches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStart - touchEnd > 75) {
+      nextSlide();
+    }
+    if (touchStart - touchEnd < -75) {
+      prevSlide();
+    }
+  };
+
+  const goToSlide = (index) => {
+    setCurrentIndex(index);
+  };
+
   return (
-    <div className="relative mx-auto flex items-center justify-center bg-yellow-300 py-10 sm:py-15">
-      {/* Left Arrow Button */}
-      <button
-        onClick={prevSlide}
-        className="absolute left-2 sm:left-6 bg-gray-800 text-white p-2 sm:p-3 rounded-full hover:bg-gray-700 transition z-10"
-      >
-        <FaChevronLeft size={20} />
-      </button>
-
-      {/* Slide Container */}
-      <div className="overflow-hidden w-full max-w-6xl px-4">
-        <div
-          className="flex transition-transform duration-700 ease-in-out"
-          style={{
-            transform: `translateX(-${currentIndex * 100}%)`,
-          }}
+    <div className={corausalStyle.corausalDiv}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div 
+          className={corausalStyle.mainContainer}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
         >
-          {carouselData.map((item, index) => (
-            <div
-              key={index}
-              className="w-full flex-none flex flex-col sm:flex-row items-center bg-white rounded-lg shadow-lg mx-2"
-            >
-              {/* Image Section */}
-              <div className="w-full sm:w-1/2">
-                <img
-                  src={item.image}
-                  alt="carousel"
-                  className="rounded-t-lg sm:rounded-l-lg sm:rounded-tr-none w-full h-48 sm:h-64 md:h-80 object-cover"
-                />
-              </div>
+          <div
+            className={corausalStyle.slides}
+            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+          >
+            {carouselData.map((item, index) => (
+              <div
+                key={index}
+                className={corausalStyle.corausalMap}
+              >
+                <div className={corausalStyle.imageDiv}>
+                  <img
+                    src={item.image}
+                    alt={item.heading}
+                    className={corausalStyle.imageData}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                </div>
 
-              {/* Text Section */}
-              <div className="w-full sm:w-1/2 p-4 sm:p-8 text-center sm:text-left">
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-2 sm:mb-4">
-                  {item.heading}
-                </h2>
-                <p className="text-sm sm:text-base md:text-lg text-gray-600">
-                  {item.text}
-                </p>
+                <div className={corausalStyle.contentSection}>
+                  <h2 className={corausalStyle.contentHeading}>
+                    {item.heading}
+                  </h2>
+                  <p className={corausalStyle.contentText}>
+                    {item.text}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          <button
+            onClick={prevSlide}
+            className={corausalStyle.prevSlide}
+            aria-label="Previous slide"
+          >
+            <ChevronLeft className={corausalStyle.arrowIcon} />
+          </button>
+
+          <button
+            onClick={nextSlide}
+            className={corausalStyle.nextSlide}
+            aria-label="Next slide"
+          >
+            <ChevronRight className={corausalStyle.arrowIcon} />
+          </button>
+
+          <div className={corausalStyle.Dot}>
+            {carouselData.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                  currentIndex === index
+                    ? "bg-white w-6"
+                    : "bg-white/60 hover:bg-white/80"
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+
+          {/* Auto-play Toggle */}
+          <button
+            onClick={() => setIsAutoPlaying(!isAutoPlaying)}
+            className={corausalStyle.AutoplayToggle}
+          >
+            {isAutoPlaying ? "Pause" : "Play"}
+          </button>
         </div>
       </div>
-
-      {/* Right Arrow Button */}
-      <button
-        onClick={nextSlide}
-        className="absolute right-2 sm:right-6 bg-gray-800 text-white p-2 sm:p-3 rounded-full hover:bg-gray-700 transition z-10"
-      >
-        <FaChevronRight size={20} />
-      </button>
     </div>
   );
 };

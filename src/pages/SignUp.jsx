@@ -7,7 +7,24 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { SIGNUP_IMG } from "../Utils/Constants";
 
-function SignUp() {
+const SignUpStyle = {
+  mainDiv: `flex justify-center items-center min-h-screen bg-red-300 p-4`,
+  container: `flex flex-col md:flex-row w-full max-w-4xl bg-white shadow-lg rounded-2xl md:rounded-4xl overflow-hidden`,
+  leftSide: `hidden md:block md:w-1/2`,
+  leftImage: `w-full h-full object-cover`,
+  rightSide: `w-full md:w-1/2 p-6 sm:p-8`,
+  signUpText: `text-2xl sm:text-3xl font-semibold text-gray-700 text-center`,
+  form: `mt-4 sm:mt-6`,
+  label: `block text-gray-700 text-sm sm:text-base`,
+  inputField: `w-full px-3 py-2 sm:px-4 sm:py-2 mt-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400`,
+  button: `w-full mt-6 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-200`,
+  para: `text-center text-gray-600 mt-4 text-sm sm:text-base`,
+  link: `text-center text-gray-600 mt-4 text-sm sm:text-base`,
+  margin: `mt-4`
+}
+
+
+const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -41,50 +58,49 @@ function SignUp() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-red-300 p-4">
-      <div className="flex flex-col md:flex-row w-full max-w-4xl bg-white shadow-lg rounded-2xl md:rounded-4xl overflow-hidden">
-        {/* Left Side Image (Hidden on Mobile) */}
-        <div className="hidden md:block md:w-1/2">
+    <div className={SignUpStyle.mainDiv}>
+      <div className={SignUpStyle.container}>
+        <div className={SignUpStyle.leftSide}>
           <img
             src={SIGNUP_IMG}
             alt="Sign Up"
-            className="w-full h-full object-cover"
+            className={SignUpStyle.leftImage}
           />
         </div>
 
         {/* Right Side Form */}
-        <div className="w-full md:w-1/2 p-6 sm:p-8">
-          <h2 className="text-2xl sm:text-3xl font-semibold text-gray-700 text-center">
+        <div className={SignUpStyle.rightSide}>
+          <h2 className={SignUpStyle.signUpText}>
             Sign Up
           </h2>
-          <form onSubmit={handleRegister} className="mt-4 sm:mt-6">
+          <form onSubmit={handleRegister} className={SignUpStyle.form}>
             <div>
-              <label className="block text-gray-700 text-sm sm:text-base">Full Name</label>
+              <label className={SignUpStyle.label}>Full Name</label>
               <input
                 type="text"
-                className="w-full px-3 py-2 sm:px-4 sm:py-2 mt-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className={SignUpStyle.inputField}
                 placeholder="Enter your name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
               />
             </div>
-            <div className="mt-4">
-              <label className="block text-gray-700 text-sm sm:text-base">Email</label>
+            <div className={SignUpStyle.margin}>
+              <label className={SignUpStyle.label}>Email</label>
               <input
                 type="email"
-                className="w-full px-3 py-2 sm:px-4 sm:py-2 mt-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className={SignUpStyle.inputField}
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>
-            <div className="mt-4">
-              <label className="block text-gray-700 text-sm sm:text-base">Password</label>
+            <div className={SignUpStyle.margin}>
+              <label className={SignUpStyle.label}>Password</label>
               <input
                 type="password"
-                className="w-full px-3 py-2 sm:px-4 sm:py-2 mt-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className={SignUpStyle.inputField}
                 placeholder="Enter your password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -93,14 +109,14 @@ function SignUp() {
             </div>
             <button
               type="submit"
-              className="w-full mt-6 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-200"
+              className={SignUpStyle.button}
             >
               Sign Up
             </button>
           </form>
-          <p className="text-center text-gray-600 mt-4 text-sm sm:text-base">
+          <p className={SignUpStyle.para}>
             Already have an account?{" "}
-            <Link to="/signIn" className="text-blue-600 font-semibold hover:underline">
+            <Link to="/signIn" className={SignUpStyle.link}>
               Sign In
             </Link>
           </p>

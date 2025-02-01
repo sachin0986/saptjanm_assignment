@@ -233,25 +233,20 @@ export const AppData = [
 
   export const carouselData = [
     {
-      image: "https://images.pexels.com/photos/3134232/pexels-photo-3134232.jpeg?auto=compress&cs=tinysrgb&w=800",
-      heading: "Find Someone Special",
-      text: "Join millions who have found their perfect match with us.",
+      heading: "Find Your Perfect Match",
+      text: "Our intelligent matching system helps you connect with compatible partners based on your preferences and personality.",
+      image: "https://images.pexels.com/photos/3134232/pexels-photo-3134232.jpeg?auto=compress&cs=tinysrgb&w=800"
     },
     {
-      image: "https://images.pexels.com/photos/1066861/pexels-photo-1066861.jpeg?auto=compress&cs=tinysrgb&w=800",
-      heading: "Make New Friends",
-      text: "Meet new people, make connections, and enjoy great conversations.",
+      heading: "Safe & Secure Dating",
+      text: "Your privacy and safety are our top priority. Enjoy peace of mind with our verified profiles and secure messaging system.",
+      image: "https://images.pexels.com/photos/1066861/pexels-photo-1066861.jpeg?auto=compress&cs=tinysrgb&w=800"
     },
     {
-      image: "https://images.pexels.com/photos/2950331/pexels-photo-2950331.jpeg?auto=compress&cs=tinysrgb&w=800",
-      heading: "Build Your Network",
-      text: "Expand your professional network and find new opportunities.",
-    },
-    {
-      image: "https://images.pexels.com/photos/2719500/pexels-photo-2719500.jpeg?auto=compress&cs=tinysrgb&w=800",
-      heading: "Explore the World Together",
-      text: "Find travel buddies and explore new destinations.",
-    },
+      heading: "Meaningful Connections",
+      text: "Build genuine relationships with like-minded individuals who share your interests and values.",
+      image: "https://images.pexels.com/photos/2950331/pexels-photo-2950331.jpeg?auto=compress&cs=tinysrgb&w=800"
+    }
   ];
 
 
