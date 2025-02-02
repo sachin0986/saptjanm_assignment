@@ -5,14 +5,14 @@ A modern dating web application built with React, featuring a responsive design,
 ## 🔴 Live Demo
 
 Experience the application live:
-- **Live Site**: [Dating App](https://dating-app-demo.vercel.app)
+- **Live Site**: [Dating App](https://saptjanm-assignment.vercel.app/)
 - **Demo Credentials**:
-  - Email: demo@example.com
-  - Password: demo123
+  - Email: raj@gmail.com
+  - Password: raj123456
 
 [![Deploy with Vercel](https://saptjanm-assignment.vercel.app/)](https://saptjanm-assignment.vercel.app/)
 
-![App Preview](https://saptjanm-assignment.vercel.app/)
+![App Preview]("/src/assets/preview.png")
 
 ## 🚀 Features
 
