@@ -2,7 +2,17 @@
 
 A modern dating web application built with React, featuring a responsive design, user authentication, profile management, and matching system. This application provides a seamless experience for users looking to connect with potential matches.
 
-![App Preview](/src/assets/preview.png)
+## 🔴 Live Demo
+
+Experience the application live:
+- **Live Site**: [Dating App](https://dating-app-demo.vercel.app)
+- **Demo Credentials**:
+  - Email: demo@example.com
+  - Password: demo123
+
+[![Deploy with Vercel](https://saptjanm-assignment.vercel.app/)](https://saptjanm-assignment.vercel.app/)
+
+![App Preview](https://saptjanm-assignment.vercel.app/)
 
 ## 🚀 Features
 
