@@ -29,14 +29,44 @@ The project relies on the following main dependencies:
 ```json
 {
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.x",
-    "tailwindcss": "^3.x",
-    "lucide-react": "^0.263.1"
+    "@heroicons/react": "^2.2.0",
+    "@reduxjs/toolkit": "^2.5.1",
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/vite": "^4.0.1",
+    "firebase": "^11.2.0",
+    "firestore": "^1.1.6",
+    "lucide-react": "^0.474.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-google-button": "^0.8.0",
+    "react-icons": "^5.4.0",
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^7.1.4",
+    "react-slick": "^0.30.3",
+    "react-toastify": "^11.0.3",
+    "redux": "^5.0.1",
+    "tailwindcss": "^4.0.1"
+  },
+  }
+```
+## 📦 Dev Dependencies
+The project relies on the following Dev dependencies:
+````    json
+{
+    "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.17.0",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.16",
+    "globals": "^15.14.0",
+    "vite": "^6.0.5"
   }
 }
-```
+````
 
 ## 🚀 Installation and Setup
 
