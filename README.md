@@ -2,7 +2,7 @@
 
 A modern dating web application built with React, featuring a responsive design, user authentication, profile management, and matching system. This application provides a seamless experience for users looking to connect with potential matches.
 
-![App Preview](/api/placeholder/800/400)
+![App Preview](https://saptjanm-assignment.vercel.app/)
 
 ## 🚀 Features
 
@@ -72,7 +72,7 @@ The project relies on the following Dev dependencies:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/dating-app.git
+   git clone https://github.com/sachin0986/saptjanm_assignment.git
    cd dating-app
    ```
 
@@ -214,7 +214,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👥 Authors
 
-- Your Name - Initial work
+- Sachin Arora - Initial work
 
 ## 🙏 Acknowledgments
 
