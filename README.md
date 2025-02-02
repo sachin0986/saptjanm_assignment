@@ -10,7 +10,7 @@ Experience the application live:
   - Email: raj@gmail.com
   - Password: raj123456
 
-[![Deploy with Vercel](https://saptjanm-assignment.vercel.app/)](https://saptjanm-assignment.vercel.app/)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/sachin0986/saptjanm_assignment)
 
 ![App Preview](src/assets/preview.png)
 
