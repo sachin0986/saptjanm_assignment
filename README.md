@@ -12,7 +12,7 @@ Experience the application live:
 
 [![Deploy with Vercel](https://saptjanm-assignment.vercel.app/)](https://saptjanm-assignment.vercel.app/)
 
-![App Preview]("/src/assets/preview.png")
+![App Preview]("src/assets/preview.png")
 
 ## 🚀 Features
 
