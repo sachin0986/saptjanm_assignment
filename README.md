@@ -2,7 +2,7 @@
 
 A modern dating web application built with React, featuring a responsive design, user authentication, profile management, and matching system. This application provides a seamless experience for users looking to connect with potential matches.
 
-![App Preview](https://saptjanm-assignment.vercel.app/)
+![App Preview](/src/assets/preview.png)
 
 ## 🚀 Features
 
